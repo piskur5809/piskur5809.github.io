@@ -1,0 +1,389 @@
+ /*http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+	*/
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td,
+	article, aside, canvas, details, embed, 
+	figure, figcaption, footer, header, hgroup, 
+	menu, nav, output, ruby, section, summary,
+	time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+	}
+	/* HTML5 display-role reset for older browsers */
+	article, aside, details, figcaption, figure, 
+	footer, header, hgroup, menu, nav, section {
+		display: block;
+	}
+	body {
+		line-height: 1;
+	}
+	ol, ul {
+		list-style: none;
+	}
+	blockquote, q {
+		quotes: none;
+	}
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none;
+	}
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+}
+/*Reset END*/
+html{
+	height:100%;
+	font-family: sans-serif;
+}
+body{
+	height:100%;
+}
+header{
+	background-color:#e6e6e6;
+	height:120px;
+	width:100%;
+	box-shadow: 0 0 10px 2px rgba(0,0,0,0.5);
+	border-color: #d0d0d0;
+}
+main{
+	min-height: 180px;
+	height: 100%; 
+}
+button{
+	cursor: pointer;
+}
+
+.header-wraper{
+	max-width: 1170px;
+	margin: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-end;
+	padding-top:65px;
+}
+.header-wraper-buttons{
+	display:flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.header-wraper-buttons_insert{
+	padding-right: 10px;
+}
+.header-wraper-buttons button{
+	border:none;
+	border-radius: 3px;
+	box-shadow: 0 2px 10px -1px #000000;
+	background-color:#016dca;
+	font-size: 14px;
+	text-shadow: 0 1px 2px #000000;
+	color:#ffffff;
+	height:30px;
+	width:100px;
+}
+.header-wraper-buttons_refresh button{
+	width:150px;
+}
+.header-wraper-search{
+	display: flex;
+	flex-direction: row;
+}
+.header-wraper-search_image{
+	padding: 5px 10px 0 0;
+	opacity: 0.5;
+	cursor: pointer;
+}
+.header-wraper-search_area input{
+	border: none;
+	border-radius: 3px;
+	box-shadow: inset 0 1px 4px #000000a6;
+	padding: 3px 3px 3px 10px;
+	height: 24px;
+}
+
+.set-date{
+	max-width: 1170px;
+	display: flex;
+	flex-direction: row;
+	margin:25px auto;
+}
+.set-date div{
+	display: flex;
+	flex-direction: row;
+}
+.set-date button{
+	position: relative;
+	background-color:#ffffff;
+	border: none;
+	border-radius: 4px;
+	box-shadow: inset 0 0 4px #000000a6;
+	color:#717171;
+	height: 25px;
+}
+.set-date-month div{
+	padding-right: 10px;
+}
+.set-date-month button{
+	width:20px;
+}
+.set-date-month_name{
+	justify-content: space-around;
+	font-size: 24px;
+	width: 170px;
+}
+.button-next-p::before, .button-next-p::after {
+    content: ''; 
+    position: absolute;
+    left: 8px;
+    top: 7px;
+    border: 6px solid transparent;
+    border-left: 5px solid #717171;
+   }
+.button-previous-p::before, .button-previous-p::after {
+    content: ''; 
+    position: absolute;
+    left: 1px;
+    top: 7px;
+    border: 6px solid transparent;
+    border-right: 5px solid #717171;
+   }
+/*таблица календаря START*/
+.calendar{
+	max-width: 1170px;
+	/*height: calc(100% - 20px);*/
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-content: stretch;
+}
+.day-line{
+	display: flex;
+	align-content: stretch;
+	height:150px;
+}
+.day{
+	display: flex;
+	flex-basis: 14.28%;
+	flex-direction: column;
+	border: 1px solid #d0d0d0;
+	min-width: 40px;
+	width:14.28%;
+	margin:-0.5px;
+	color:#8e8e8e;
+}
+.day:hover{
+	z-index: 1;
+	box-shadow: inset 0 0 0 2px #016dca;
+}
+.day p {
+	padding: 3px 0 3px 8px;
+	color:#757575;
+	font-size: 14px;
+}
+.day-date{
+	padding: 8px !important;
+	color: #a7a7a7 !important;
+	font-size: 16px !important;
+}
+.name-event{
+	font-weight:  bold;
+}
+.day-description{
+	overflow: hidden;
+}
+
+/*таблица календаря END*/
+
+.form-back{
+	z-index: 2 !important;
+	display: none;
+	width:100%;
+	height:100%;
+	position: fixed;
+	top:0px;
+}
+
+/*малая форма START*/
+.small-form-wrapper{
+	z-index: 3 !important;
+	display: none;
+	position: absolute;
+	top:0px;
+}
+.add-form{
+	width: 350px;
+	height: 115px;
+	border: 1px solid #9a9a9a;
+	border-radius: 4px;
+	box-shadow: 0 0 15px -2px rgba(0,0,0,0.5);
+	background-color: #ffffff;
+}
+.add-form-events_input{
+	width: 290px;
+	height: 25px;
+	margin: 0 25px 20px 25px;
+	border: 1px solid #9a9a9a;
+	border-radius: 4px;
+	box-shadow: inset 0 1px 5px -1px rgba(0,0,0,0.5);
+}
+.add-form-button_create{
+	background:linear-gradient(to bottom, #ffffff,#dadada);
+	border:1px solid #9a9a9a;
+	border-radius: 4px;
+	margin:0 0 0 25px;
+}
+/*малая форма END*/
+
+/*Указатель малой формы START*/
+.add-form::before, .add-form::after {
+    content: ''; 
+    position: absolute;
+    left: 25px;
+    top: -30px;
+    border: 15px solid transparent;
+    border-bottom: 15px solid #9a9a9a;
+   }
+.add-form::after {
+    border-bottom: 15px solid white;
+    top: -29px;
+}
+.add-form-close{
+	width:12px;
+	margin: 14px 0 0 325px;
+	font-size: 14px;
+	cursor: pointer;
+}
+/*Указатель малой формы END*/
+
+/*Большая форма START*/
+.form-wrapper{
+	z-index: 2 !important;
+	display: none;
+	width: 350px;
+}
+.form-main{
+	width: 350px;
+	height: 400px;
+	border: 1px solid #9a9a9a;
+	border-radius: 4px;
+	box-shadow: 0 0 15px -2px rgba(0,0,0,0.5);
+	background-color:#ffffff;
+}
+.form-close{
+	width:12px;
+	margin: 14px 0 0 325px;
+	font-size: 14px;
+	cursor: pointer;
+}
+.form-events_input, .form-date_input, .form-names_input, .form-textarea_input{
+	width: 290px;
+	height: 25px;
+	padding-left: 5px;
+	border: 1px solid #9a9a9a;
+	border-radius: 4px;
+	box-shadow: inset 0 1px 5px -1px rgba(0,0,0,0.5);
+	font-family: sans-serif;
+}
+.form-events, .form-date, .form-names, .form-textarea{
+	margin: 0 25px 10px 25px;
+}
+.form-events p{
+    height: 40px;
+	margin: 10px 0 20px 0;
+	font-size: 25px;
+	font-weight:bolder;
+} 
+.form-date p{
+	height: 25px;
+	font-size: 18px;
+} 
+.form-names p{
+	height: 25px;
+	color:#a7a7a7;
+	font-weight:bold;
+	font-size: 15px;
+} 
+.form-names p:last-child{
+	height: 25px;
+	margin: 5px 0 0 25px;
+	color:#000000;
+	font-weight:normal;
+	font-size: 18px;
+} 
+.form-textarea p{
+	height: 130px;
+	margin-top: 40px;
+	font-size: 16px;
+	overflow: auto;
+}
+.form-textarea_input{
+	height:130px;
+	padding-top: 5px;
+	margin-top: 40px;
+	overflow: auto;
+	resize: none;
+}
+.form-buttons{
+	display: flex;
+	flex-direction: row;
+	margin: 12px 0 0 25px;
+	position: absolute;
+	bottom: 25px;
+}
+.form-button_apply, .form-button_delete{
+	padding: 3px 10px;
+	background:linear-gradient(to bottom, #ffffff,#dadada);
+	border:1px solid #9a9a9a;
+	border-radius: 4px;
+	margin-right: 15px;
+	font-size: 12px;
+}
+/*большая форма END*/
+
+/*указатели большой формы START*/
+.form-left-triangle{
+	display: none;
+}
+.form-left-triangle::before, .form-left-triangle::after {
+    content: ''; 
+    position: absolute;
+    top: 25px;
+    left: -30px;
+    border: 15px solid transparent;
+    border-right: 15px solid #9a9a9a;
+   }
+   .form-left-triangle::after {
+    border-right: 15px solid white;
+    left: -29px;
+}
+.form-right-triangle{
+	display: none;
+}
+.form-right-triangle::before, .form-right-triangle::after {
+    content: ''; 
+    position: absolute;
+    top: 25px;
+    right: -30px;
+    border: 15px solid transparent;
+    border-left: 15px solid #9a9a9a;
+   }
+   .form-right-triangle::after {
+    border-left: 15px solid white;
+    right: -29px;
+}
+/*указатели большой формы END

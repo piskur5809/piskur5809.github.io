@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Calendar</title>
+	<link rel="stylesheet" href="style/calendar-style.css" type="text/css">
+	<script type="text/javascript" src = "script/calendar-script.js" defer></script>
+</head>
+<body >
+	<header>
+		<div class="header-wraper">
+			<div class="header-wraper-buttons">
+				<div class="header-wraper-buttons_insert">
+					<button id="insert" type="button" name="insert" onclick="setEvents(id)">Добавить</button>
+				</div>
+				<div class="header-wraper-buttons_refresh">
+					<button type="button" name="refresh"  onclick ="clearStorage()">Очистить календарь</button>
+				</div>
+			</div>
+			<div class="header-wraper-search">
+				<div class="header-wraper-search_image">
+					<img src="image/search.png" alt="search" width="20px" onclick = "clearForm()">
+				</div> 
+				<div class="header-wraper-search_area"> 
+					<input type="text" name="search" size="25" placeholder="Событие, дата или участник">
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="set-date"> <!-- кнопки перехода по месяцам и название месяца -->
+		<div class="set-date-month">
+			<div class="set-date-month-button_left">
+				<button type="button" name="previous"  onclick="storage.displayMonth(-1)">&#11207
+				</button>
+			</div>
+			<div id="month" class="set-date-month_name" >
+				<p>month</p>
+			</div>
+			<div class="set-date-month-button_right">
+				<button type="button" name="next" onclick="storage.displayMonth(1)">&#11208
+				</button>
+			</div>
+		</div>
+		<div class="set-date-button_today">
+			<button type="button" name="today" onclick="storage.displayMonth()">Сегодня
+			</button>
+		</div>
+	</div>
+<main>
+	<div class="calendar" id="calendar">
+		<!-- здесь js вставит таблицу -->
+	</div>
+
+	<!-- Формы -->
+	<div id="form-back" class="form-back" onclick="hideForm()"> 
+		<!-- background для закрытия форм -->
+	</div>
+
+<!-- всплывающая форма малая-->
+	<div id="smallForm" class="small-form-wrapper">
+		<div class="add-form">
+			<div class="add-form-close" onclick="hideForm()">
+				&#10005
+			</div>
+			<div  class="add-form-events">
+				<input class="add-form-events_input" type="text" name="even" placeholder=" День, месяц, год, Событие">
+			</div>
+			<div class="add-form-button">
+					<button class="add-form-button_create" type="button" name="create"
+				onclick="day.createEventSmall()">Создать</button>
+			</div>
+		</div>
+	</div>
+	<!--END всплывающая форма малая-->
+
+
+	<div id="form" class="form-wrapper">
+		<div id="left" class="form-left-triangle">
+			<!-- указатель "<" -->
+		</div>
+		<div id="right" class="form-right-triangle">
+			<!-- указатель ">" -->
+		</div>
+		<!-- всплывающая форма большая-->
+		<div class="form-main"> 
+			<div class="form-close" onclick="hideForm()">
+				&#10005
+			</div>
+			<div class="form-events">
+				<p id="form-events"></p>
+				<input id="form-events-input" class="form-events_input" type="text" name="events" placeholder=" Событие">
+			</div>
+			<div class="form-date">
+				<p id="form-date"></p>
+				<input id="form-date-input" class="form-date_input" type="text" name="date" placeholder=" День, месяц, год">
+			</div>
+			<div  class="form-names">
+				<p id="form-names"></p>
+				<input id="form-names-input" class="form-names_input" type="text" name="names" placeholder=" Имена участников">
+			</div>
+			<div  class="form-textarea">
+				<p id="form-textarea"></p>
+				<textarea id="form-textarea-input" class="form-textarea_input" type="text" name="textarea" placeholder=" Описание" ></textarea>
+			</div>
+			<div class="form-buttons">
+					<button class="form-button_apply" type="button" name="apply" onclick="day.createEvent(elementId)">Готово</button>
+					<button class="form-button_delete" type="button" name="delete" onclick="day.deleteEvent(elementId)">Удалить</button>
+			</div>
+		</div>
+	</div>
+	<!-- END всплывающая форма большая -->
+</main>
+</body>
+</html>
